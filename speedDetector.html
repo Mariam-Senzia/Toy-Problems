@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+        <title>Speed detector </title>
+    </head>
+
+    <body>
+        <form>
+            <label>Input car speed</label>
+            <input type="number" id="speed">
+            <button onclick="input()">Detect</button>
+            <h3 id="display"></h3>
+        </form>
+
+        <!--Javascript input-->
+        <script>
+        function speedDetector(speed) {
+            const limit = 70
+            const over = 5
+
+            const speed = document.getElementById("speed")
+
+        if (speed <= limit) {
+            return "OK"
+        } else {
+            const demerit = (speed - limit)/ over;
+        }
+            if (demerit > 12) {
+               return "Licence suspended!!"
+            } else {
+                return `point ${demerit}`
+            }
+    
+        display.innerText = `Your limit is ${limit} and demerit: ${demerit}`
+        }
+
+
+        </script>
+    </body>
+
+</html>

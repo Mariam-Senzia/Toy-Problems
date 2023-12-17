@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+        <title>Net Salary Calculator</title>
+       
+        <!--Javascript Input-->
+        <script>
+            function paye_calculate(salary) {
+                salary = document.getElementById("gross_salary").value
+
+                const total_tax = 0
+                const remaining_salary = salary
+                if(remaining_salary > 24000) {
+                    remaining_salary = remaining_salary - 24000
+                    total_tax = 2400
+                } else {
+                    total_tax = (10 * remaining_salary ) / 100
+                }
+                if (remaining_salary > 8,333) {
+                    remaining_salary = remaining_salary - 8333
+                    total_tax = total_tax + 2083
+                } else {
+                    total_tax = (25 * remaining_salary ) / 100
+                }
+                if (remaining_salary > 467667) {
+                      remaining_salary = remaining_salary - 467667
+                        total_tax = total_tax + 140300
+                } else {
+                    total_tax = (30 * remaining_salary ) / 100
+                }
+                console.log("Total Salary: " + salary)
+                console.log("Total Tax: " + total_tax)
+                console.log("Net Salary: " + (salary - total_tax))
+
+                document.getElementById("salarya").value = salary    
+                document.getElementById("salaryb").value = total_tax
+                document.getElementById("salaryc").value = (salary - total_tax)
+
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <form>
+        <label>Input Salary </label>
+        <input type ="number" id ="gross_salary" >
+        <button onclick="paye_calculate()">Calculate</button>
+        </form>
+
+        <div id = "salary">
+            <b ">Total Salary: </b>
+            <b id="salarya"> </b>
+            <input type="text" id="salarya" readonly>
+        </div>
+
+        <div id = "salary">
+           <b ">Total Tax: </b>
+            <b id="salaryb"> </b>
+           <input type="text" id="salaryb" readonly>
+        </div>
+
+        <div id = "salary">
+            <b ">Net Salary: </b>
+            <b id="salaryc"> </b>
+            <input type="text" id="salaryc" readonly>
+        </div>
+
+    </body>
+
+</html>

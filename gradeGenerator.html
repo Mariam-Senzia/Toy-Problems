@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+        <title>Grade Converter</title>
+    </head>
+
+<body>
+    <form>
+    <label>Enter marks (between 0 - 100) </label>
+    <input type ="number" id ="marks" min=0 max=100>
+    <button onclick="input()">Generate</button>
+    </form>
+
+    <h3 id="gradeDisplay"></h3>
+    
+    <!--Javascript Input-->
+    <script>
+        function input() {
+            const marks = parseInt(document.getElementById("marks").value);
+
+            let grade;
+
+            if (marks > 79) {
+              grade = "A"
+            }else if (marks >= 60 && marks <= 79){
+                grade = "B"
+            }else if (marks >= 49 && marks <= 59) {
+                grade = "C"
+            }else if (marks >= 40 && marks <= 49) {
+                grade = "D"
+            }else if (marks < 40){
+                grade = "E"
+            }
+           document.getElementById("gradeDisplay").textContent = `Grade: ${grade}`
+        }
+    </script>
+</body>
+
+</html>
